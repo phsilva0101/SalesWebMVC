@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,8 +11,17 @@ namespace SalesWebMVC.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Display(Name = "Birth Date")] // Annotation para exibir na tela um elemento customizado, diferente do instanciado na prop.
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
+        
+
         public double BaseSalary { get; set; }
 
         public Department Department { get; set; }
