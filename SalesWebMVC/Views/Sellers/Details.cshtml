@@ -1,0 +1,61 @@
+﻿@model SalesWebMVC.Models.Seller
+@{
+    ViewData["Title"] = "Details";
+    ViewData["Seller"] = Html.DisplayFor(model => model.Name);
+}
+
+<h2>@ViewData["Tilte"]</h2>
+
+<div>
+    <h2>Seller @ViewData["Seller"]</h2>
+    <hr />
+    <dl class="dl-horizontal" style="font-size: 2.0rem; padding: 1.7rem;">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseSalary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BaseSalary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Department.Id)
+        </dd>
+    </dl>
+</div>
+
+<div style="padding: 1rem; margin-left: 4.5rem; font-size: 1.8rem">
+    <a asp-action="Edit" asp-route-id="@Model.Id"  class="btn btn-success">Edit </a>
+
+    <a asp-action="Index" asp-route-id="@Model.Id" style="margin-left:1.2rem" >Back to list</a>
+</div>
+
+
+
