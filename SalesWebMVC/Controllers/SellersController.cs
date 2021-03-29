@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SalesWebMVC.Models;
 using SalesWebMVC.Services;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,18 @@ namespace SalesWebMVC.Controllers
 
         }
 
-        
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost] // anotacion para determinar q é POST e nao GET
+        [ValidateAntiForgeryToken] // prevenção de ataques CSRF, quando alguem aproveita a sessao de auth e envia dados maliciosos.
+        public IActionResult Create(Seller seller)
+        {
+            _sellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
